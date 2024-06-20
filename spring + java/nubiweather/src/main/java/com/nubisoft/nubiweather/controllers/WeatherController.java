@@ -13,8 +13,14 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping("/realtime-weather")
-    public WeatherDTO getWeather()
+    public WeatherDTO getCurrentWeather()
     {
-        return weatherService.getWeather();
+        return weatherService.getCurrentWeatherService();
+    }
+
+    @GetMapping("/forecast-weather")
+    public WeatherDTO getForecastWeather()
+    {
+        return weatherService.getForecastWeatherService();
     }
 }
