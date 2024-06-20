@@ -16,19 +16,11 @@ public class WeatherService {
     private static final ArrayList<String> ARRAY_LIST_OF_CITIES = new ArrayList<>(Arrays.asList("Gliwice", "Hamburg"));
     
     public WeatherDTO getCurrentWeatherService() {
-        for(String city : ARRAY_LIST_OF_CITIES) {
-            String response = weatherClient.getCurrentWeatherClient(city);
-            log.info(response);
-        }
-        return null;
+        return weatherClient.getCurrentWeatherClient("Gliwice");
     }
 
     public WeatherDTO getForecastWeatherService() {
-        for(String city : ARRAY_LIST_OF_CITIES) {
-            String response = weatherClient.getForecastWeatherClient(city);
-            log.info(response);
-        }
-        return null;
+        return weatherClient.getForecastWeatherClient("Gliwice");
     }
 
 }
