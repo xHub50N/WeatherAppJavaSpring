@@ -1,4 +1,4 @@
-package com.nubisoft.nubiweather.DTO;
+package com.nubisoft.nubiweather.DTO.forecastDTOs;
 
 import com.nubisoft.nubiweather.models.WeatherDTO;
 import lombok.Builder;

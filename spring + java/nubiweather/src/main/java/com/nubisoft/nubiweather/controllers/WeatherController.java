@@ -1,7 +1,8 @@
 package com.nubisoft.nubiweather.controllers;
 
-import com.nubisoft.nubiweather.DTO.WeatherListDTO;
-import com.nubisoft.nubiweather.DTO.WeatherForecastDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherListDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherForecastDTO;
+import com.nubisoft.nubiweather.DTO.forecastDTOs.WeatherForecastsListDTO;
 import com.nubisoft.nubiweather.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,7 @@ public class WeatherController {
     }
 
     @GetMapping("/forecast-weather")
-    public WeatherForecastDTO getForecastWeather()
+    public WeatherForecastsListDTO getForecastWeather()
     {
         return weatherService.getForecastWeatherService();
     }

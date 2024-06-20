@@ -1,9 +1,11 @@
 package com.nubisoft.nubiweather.service;
 
-import com.nubisoft.nubiweather.DTO.WeatherListDTO;
-import com.nubisoft.nubiweather.DTO.WeatherForecastDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherListDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherForecastDTO;
+import com.nubisoft.nubiweather.DTO.forecastDTOs.WeatherForecastsListDTO;
 import com.nubisoft.nubiweather.WeatherClient.WeatherClient;
 import com.nubisoft.nubiweather.models.WeatherDTO;
+import com.nubisoft.nubiweather.models.WeatherForecastModelDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -28,13 +30,13 @@ public class WeatherService {
                 .build();
     }
 
-    public WeatherForecastDTO getForecastWeatherService() {
-        List<WeatherDTO> currentWeather = ARRAY_LIST_OF_CITIES.stream()
+    public WeatherForecastsListDTO getForecastWeatherService() {
+        List<WeatherForecastModelDTO> currentWeather = ARRAY_LIST_OF_CITIES.stream()
                 .map(weatherClient::getForecastWeatherClient)
                 .collect(Collectors.toList());
 
-        return WeatherForecastDTO.builder()
-                .weatherForecast(currentWeather)
+        return WeatherForecastsListDTO.builder()
+                .currentWeather(currentWeather)
                 .build();
     }
 

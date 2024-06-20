@@ -1,4 +1,4 @@
-package com.nubisoft.nubiweather.DTO;
+package com.nubisoft.nubiweather.DTO.currentDTOs;
 
 import lombok.Getter;
 

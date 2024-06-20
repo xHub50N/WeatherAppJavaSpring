@@ -1,6 +1,5 @@
-package com.nubisoft.nubiweather.DTO;
+package com.nubisoft.nubiweather.DTO.forecastDTOs;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 
 @Getter

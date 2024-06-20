@@ -1,9 +1,17 @@
 package com.nubisoft.nubiweather.WeatherClient;
 
-import com.nubisoft.nubiweather.DTO.WeatherAppDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherAppDTO;
+import com.nubisoft.nubiweather.DTO.currentDTOs.WeatherForecastDTO;
+import com.nubisoft.nubiweather.DTO.forecastDTOs.ForecastDayDTO;
+import com.nubisoft.nubiweather.DTO.forecastDTOs.WeatherAppForecastDayPropertyDTO;
+import com.nubisoft.nubiweather.DTO.forecastDTOs.WeatherForecastsAppDTO;
 import com.nubisoft.nubiweather.models.WeatherDTO;
+import com.nubisoft.nubiweather.models.WeatherForecastModelDTO;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class WeatherClient {
@@ -25,12 +33,12 @@ public class WeatherClient {
                 .humidity(weatherAppDTO.getCurrentDTO().getHumidity())
                 .build();
     }
-    public WeatherDTO getForecastWeatherClient(String city)
+    public WeatherForecastModelDTO getForecastWeatherClient(String city)
     {
-        WeatherAppDTO weatherAppDTO = callGetMethod(WEATHER_URL + "forecast.json?key=" + API_KEY + "&q=" + "Gliwice" +
-                "&days=2&aqi=no&alerts=no", WeatherAppDTO.class ,API_KEY);
+        WeatherForecastsAppDTO weatherAppDTO = callGetMethod(WEATHER_URL + "forecast.json?key=" + API_KEY + "&q=" + city +
+                "&days=2&aqi=no&alerts=no", WeatherForecastsAppDTO.class ,API_KEY);
 
-        return WeatherDTO.builder()
+        return WeatherForecastModelDTO.builder()
                 .name(weatherAppDTO.getLocationDTO().getName())
                 .country(weatherAppDTO.getLocationDTO().getCountry())
                 .localtime(weatherAppDTO.getLocationDTO().getLocaltime())
