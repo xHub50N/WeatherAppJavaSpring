@@ -19,6 +19,7 @@ public class WeatherClient {
                 .name(weatherAppDTO.getLocationDTO().getName())
                 .country(weatherAppDTO.getLocationDTO().getCountry())
                 .localtime(weatherAppDTO.getLocationDTO().getLocaltime())
+                .text(weatherAppDTO.getCurrentDTO().getCondition().getText())
                 .temp_c(weatherAppDTO.getCurrentDTO().getTemp_c())
                 .wind_kph(weatherAppDTO.getCurrentDTO().getWind_kph())
                 .humidity(weatherAppDTO.getCurrentDTO().getHumidity())
@@ -26,13 +27,14 @@ public class WeatherClient {
     }
     public WeatherDTO getForecastWeatherClient(String city)
     {
-        WeatherAppDTO weatherAppDTO = callGetMethod(WEATHER_URL + "forecast.json?key=" + API_KEY + "&q=" + city +
+        WeatherAppDTO weatherAppDTO = callGetMethod(WEATHER_URL + "forecast.json?key=" + API_KEY + "&q=" + "Gliwice" +
                 "&days=2&aqi=no&alerts=no", WeatherAppDTO.class ,API_KEY);
 
         return WeatherDTO.builder()
                 .name(weatherAppDTO.getLocationDTO().getName())
                 .country(weatherAppDTO.getLocationDTO().getCountry())
                 .localtime(weatherAppDTO.getLocationDTO().getLocaltime())
+                .text(weatherAppDTO.getCurrentDTO().getCondition().getText())
                 .temp_c(weatherAppDTO.getCurrentDTO().getTemp_c())
                 .wind_kph(weatherAppDTO.getCurrentDTO().getWind_kph())
                 .humidity(weatherAppDTO.getCurrentDTO().getHumidity())

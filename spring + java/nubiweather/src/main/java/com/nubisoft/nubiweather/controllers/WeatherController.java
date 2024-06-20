@@ -1,6 +1,7 @@
 package com.nubisoft.nubiweather.controllers;
 
-import com.nubisoft.nubiweather.models.WeatherDTO;
+import com.nubisoft.nubiweather.DTO.WeatherListDTO;
+import com.nubisoft.nubiweather.DTO.WeatherForecastDTO;
 import com.nubisoft.nubiweather.service.WeatherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +14,13 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping("/realtime-weather")
-    public WeatherDTO getCurrentWeather()
+    public WeatherListDTO getCurrentWeather()
     {
-        return weatherService.getCurrentWeatherService();
+        return weatherService.getCombinedWeather();
     }
 
     @GetMapping("/forecast-weather")
-    public WeatherDTO getForecastWeather()
+    public WeatherForecastDTO getForecastWeather()
     {
         return weatherService.getForecastWeatherService();
     }
